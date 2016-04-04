@@ -4,6 +4,6 @@
     "colors": "^1.1.2",
     "lodash": "^4.7.0",
     "mongoose": "^4.4.10",
-    "oanda-adapter": "^0.1.15"
+    "oanda-adapter": "git+https://github.com/chaddjohnson/oanda-adapter.git"
   }
 }
