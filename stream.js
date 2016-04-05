@@ -23,6 +23,10 @@ symbols.forEach(function(symbol) {
             bid: tick.bid,
             ask: tick.ask,
             timestamp: tick.time
+        }, function(error) {
+            if (error) {
+                console.error(error.toString().red);
+            }
         });
     }, this);
 });
