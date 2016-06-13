@@ -34,12 +34,15 @@ function download() {
             process.stdout.write('...ERROR\n');
         });
         response.on('end', function(chunk) {
-            var parsedData = JSON.parse(data);
+            try {
+                var parsedData = JSON.parse(data);
 
-            parsedData.candles.forEach(function(tick) {
-                tick.timestamp = new Date(tick.time);
-                ticks.push(tick);
-            });
+                parsedData.candles.forEach(function(tick) {
+                    tick.timestamp = new Date(tick.time);
+                    ticks.push(tick);
+                });
+            }
+            catch (error) {}
 
             count++;
             process.stdout.cursorTo(32);
