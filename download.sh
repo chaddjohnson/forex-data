@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ./data/$1
+
 echo "2005"; node download.js $1 "2005-01-01T00:00:00Z" "2005-01-01T23:59:59Z" ./data/$1/2005.txt
 echo "2006"; node download.js $1 "2006-01-01T00:00:00Z" "2006-01-01T23:59:59Z" ./data/$1/2006.txt
 echo "2007"; node download.js $1 "2007-01-01T00:00:00Z" "2007-01-01T23:59:59Z" ./data/$1/2007.txt
