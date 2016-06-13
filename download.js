@@ -39,7 +39,8 @@ function download() {
             });
 
             count++;
-            console.log(count + ' / 365');
+            process.stdout.cursorTo(32);
+            process.stdout.write(count + ' / 365');
 
             startDate.setDate(startDate.getDate() + 1);
             endDate.setDate(endDate.getDate() + 1);
@@ -56,6 +57,8 @@ function download() {
                 ticks.forEach(function(tick) {
                     fs.appendFileSync(process.argv[5], tick.time + ',' + tick.openMid + ',' + tick.highMid + ',' + tick.lowMid + ',' + tick.closeMid + '\n');
                 });
+
+                process.stdout.write('\n');
             }
         });
     });
