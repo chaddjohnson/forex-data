@@ -30,6 +30,9 @@ function download() {
         response.on('data', function(chunk) {
             data += chunk.toString();
         });
+        response.on('error', function(chunk) {
+            process.stdout.write('...ERROR\n');
+        });
         response.on('end', function(chunk) {
             var parsedData = JSON.parse(data);
 
@@ -58,7 +61,7 @@ function download() {
                     fs.appendFileSync(process.argv[5], tick.time + ',' + tick.openMid + ',' + tick.highMid + ',' + tick.lowMid + ',' + tick.closeMid + '\n');
                 });
 
-                process.stdout.write('\n');
+                process.stdout.write('...saved\n');
             }
         });
     });
