@@ -46,7 +46,7 @@ function download() {
 
             count++;
             process.stdout.cursorTo(32);
-            process.stdout.write(count + ' / 365');
+            process.stdout.write(count + ' / 356');
 
             startDate.setDate(startDate.getDate() + 1);
             endDate.setDate(endDate.getDate() + 1);
@@ -61,7 +61,7 @@ function download() {
                 ticks = _.sortBy(ticks, 'timestamp');
 
                 ticks.forEach(function(tick) {
-                    fs.appendFileSync(process.argv[5], tick.time + ',' + tick.openMid + ',' + tick.highMid + ',' + tick.lowMid + ',' + tick.closeMid + '\n');
+                    fs.appendFileSync(process.argv[5], tick.timestamp.getTime() + ',' + tick.openMid + ',' + tick.highMid + ',' + tick.lowMid + ',' + tick.closeMid + '\n');
                 });
 
                 process.stdout.write('...saved\n');
