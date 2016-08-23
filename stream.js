@@ -21,6 +21,7 @@ symbols.forEach(function(symbol) {
         Tick.create({
             symbol: tick.instrument.replace('_', ''),
             bid: tick.bid,
+            mid: (tick.bid + tick.ask) / 2,
             ask: tick.ask,
             timestamp: tick.time
         }, function(error) {
